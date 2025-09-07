@@ -19,11 +19,8 @@ Verify: `uv --version`
 From the project root:
 
 ```bash
-# Initialize the project (creates pyproject.toml if not present)
+# Initialize the project and install dependencies from pyproject.toml
 uv sync
-
-# Add dependencies (this updates pyproject.toml and installs them)
-uv add requests parsel
 ```
 
 This sets up the project with a virtual environment managed automatically by uv.
@@ -61,19 +58,6 @@ Output files will be written under `scraped_poems/` (auto-created).
   - Or pass a list to `scrape_all_collections(titleids=[...])`
 
 Edit `main.py` to switch between targeted tests and full runs.
-
-## Tips & troubleshooting
-
-- Module not found (e.g., `parsel`): run `uv add requests parsel` again and ensure you're in the project root.
-- Slow/blocked requests: increase `delay`, retry later, and avoid high request rates.
-- Encoding: files are saved as UTF-8; ensure your editor font supports Bengali.
-- Network errors: uv venv should isolate deps; if SSL or cert issues occur, update system CA certificates.
-- uv issues: ensure uv is up-to-date (`uv self update`) and Python is available.
-
-## Responsible scraping
-
-- Be respectful: keep delays, avoid overwhelming the site.
-- This project is for educational/research purposes.
 
 ## Responsible scraping
 
